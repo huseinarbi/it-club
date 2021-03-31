@@ -1,13 +1,16 @@
 <?php
-
 class Users extends CI_Model {
 
-    public function user_render( $method, $id ) {
+    /** 
+    * Gerbang untuk mengelola routing user
+    * $method => "add/update/delete/view"
+    */
+    public function user_render( $method , $id ) {
 
         switch( $method ) {
             case 'add' :
             case 'update' :
-                $this->update( $method, $id );
+                $this->update_data( $method, $id );
                 break;
             case 'delete' :
                 echo 'delete';
@@ -18,7 +21,10 @@ class Users extends CI_Model {
 
     }
 
-    public function update( $method, $id ) {
+    /**
+    * Function untuk menambah data user
+    */
+    public function update_data( $method, $id ) {
 
         if ( $id && $method == 'update' ) {
             echo 'update'.$id;
@@ -28,6 +34,9 @@ class Users extends CI_Model {
 
     }
 
+    /**
+    * Function untuk menampilkan data user
+    */
     public function view() {
         echo 'view';
     }

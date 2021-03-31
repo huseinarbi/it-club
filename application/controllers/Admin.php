@@ -35,8 +35,8 @@ class Admin extends CI_Controller {
         $this->load->view( 'dashboard' );
     }
 
-    public function user( $method = false , $id = false ) {
-        $this->users->user_render( $method, $id );
+    public function user( $method = false , $id = false, $where = false ) {
+        return $this->users->user_render( $method, $id );
     }
-	
+
 }
