@@ -35,8 +35,38 @@ class Admin extends CI_Controller {
         $this->load->view( 'dashboard' );
     }
 
-    public function user( $method = false , $id = false ) {
-        $this->users->user_render( $method, $id );
+    public function user( $method = false , $id = false, $where = false ) {
+        return $this->users->user_render( $method, $id, $where );
+    }
+
+    /**
+    * Menampilkan view dashboard
+    */
+    public function login() {
+        $this->load->view( 'login' );
+    }
+
+    public function login_proccess() {
+        /**
+         * get from POST
+         */
+        $email      = $_POST['email'];  // ajiwahyu@gmail.com
+        $password   = $_POST['pwd'];    // password
+
+        // set where
+        $where = array(
+            'email'     => $email,
+            'password'  => $password
+        );
+        // cek database
+        $return = $this->user('read', '', $where);
+
+        // cek return
+        if ($return){
+            redirect('admin/dashboard');
+        } else {
+            redirect('admin/login');
+        }
     }
 	
 }
