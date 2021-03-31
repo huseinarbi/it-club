@@ -2,18 +2,13 @@
 class Users extends CI_Model {
 
     /** 
-    * Gerbang untuk mengelola table user
-    * $method => "create/read/update/delete"
+    * Gerbang untuk mengelola routing user
+    * $method => "add/update/delete/view"
     */
-    public function user_render( $method=null, $id=null, $where=null ) {
+    public function user_render( $method , $id ) {
 
         switch( $method ) {
-            case 'create' :
-
-                break;
-            case 'read' :
-                return $this->read_data($where);
-                break;
+            case 'add' :
             case 'update' :
                 $this->update_data( $method, $id );
                 break;
@@ -27,26 +22,7 @@ class Users extends CI_Model {
     }
 
     /**
-    * Function untuk mengambil/membaca data
-    */
-    public function read_data($where = null){
-        // set data
-        $email = $where['email'];
-        $password = md5( $where['password'] );
-        
-        // set query
-        $query = "SELECT id, username, email, password FROM users 
-            WHERE email = '$email' AND password = '$password'; ";
-
-        // get data di database
-        $get = $this->db->query($query)->result_array();
-
-        // mengembalikkan nilai
-        return $get;
-    }
-
-    /**
-    * Function untuk mengubah data
+    * Function untuk menambah data user
     */
     public function update_data( $method, $id ) {
 
@@ -59,7 +35,7 @@ class Users extends CI_Model {
     }
 
     /**
-    * Function untuk menampilkan data
+    * Function untuk menampilkan data user
     */
     public function view() {
         echo 'view';

@@ -7,6 +7,12 @@
 function get_header() {
     $cic    = new CI_Controller();
     $header = $cic->load->view( 'partials/header' );
+    
+}
+
+function get_footer() {
+    $cic    = new CI_Controller();
+    $footer = $cic->load->view( 'partials/footer' );
 }
 
 /**
@@ -26,6 +32,5 @@ function get_item_menu() {
         'setting',
     );
 }
-
 
 ?>
