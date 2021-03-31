@@ -1,5 +1,5 @@
 <?php
-class Users extends CI_Model {
+class M_users extends CI_Model {
 
     /** 
     * Gerbang untuk mengelola routing user
