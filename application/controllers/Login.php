@@ -24,6 +24,7 @@ class Login extends CI_Controller {
 
     public function __construct() {
 		parent::__construct();
+        $this->load->model( 'm_login' );
 	}
 
     /**
@@ -47,20 +48,15 @@ class Login extends CI_Controller {
     public function login_proses() {
         // get input
         $email      = $_POST['email'];          // ajiwahyu@gmail.com
-        $password   = md5( $_POST['pwd'] );     // password
+        $password   = $_POST['pwd'];     // password
 
-        $where      = array(
-            'email'     => $email,
-            'password'  => $password
-        );
-  
-        $read = get_database_data( 'users', array( 'where' => $where ) );
+        $exists = $this->m_login->checking_user_login( $email, $password );
 
-        // cek return
-        if ($read) {
-            redirect('admin/dashboard');
+        // cek user exists
+        if ( $exists ) {
+            redirect( 'admin/dashboard' );
         } else {
-            redirect('/login');
+            redirect( '/login' );
         }
     }
 	

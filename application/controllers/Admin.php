@@ -24,7 +24,7 @@ class Admin extends CI_Controller {
 
     public function __construct() {
 		parent::__construct();
-        $this->load->model( 'users' );
+        $this->load->model( 'm_users' );
 	}
 
     public function index() {
@@ -36,7 +36,7 @@ class Admin extends CI_Controller {
     }
 
     public function user( $method = false , $id = false, $where = false ) {
-        return $this->users->user_render( $method, $id );
+        return $this->m_users->user_render( $method, $id );
     }
 
 }
