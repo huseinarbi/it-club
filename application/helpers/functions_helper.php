@@ -23,6 +23,18 @@ function asset_url( $file ) {
 }
 
 /**
+ * to get page uri
+ */
+function is_page( $page ) {
+
+    if ( current( explode( '/', uri_string() ) ) == $page ) {
+        return true;
+    }
+
+    return false;
+}
+
+/**
 * Function untuk set data (list menu)
 */    
 function get_item_menu() {

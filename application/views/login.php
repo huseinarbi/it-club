@@ -1,5 +1,6 @@
 <?php get_header(); ?>
 
+<body>
 <!--Container-->
 <div class="container" id="container">
 
@@ -57,5 +58,7 @@
         </div>
     </div>
 </div>
+
+</body>
 
 <?php get_footer(); ?>
