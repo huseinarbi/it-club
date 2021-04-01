@@ -32,7 +32,23 @@ class Admin extends CI_Controller {
 	}
     
     public function dashboard() {
-        $this->load->view( 'dashboard' );
+
+        $data = array(
+            'menu' => array(
+                array(
+                    'url'   => 'dashboard',
+                    'label' => 'Dashboard'
+                ),
+                array(
+                    'url'   => 'users',
+                    'label' => 'Menu User'
+                ),
+            ),
+            'title' => 'Himanifo'
+                
+        );
+
+        $this->load->view( 'dashboard', $data );
     }
 
     public function user( $method = false , $id = false, $where = false ) {
