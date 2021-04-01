@@ -14,7 +14,7 @@
         /**
          * @todo css
          * re check if u want to enqueue some page
-         * ex. login & dashboard has sampe class of css
+         * ex. login & dashboard has same class of css
          */
 
         ?>

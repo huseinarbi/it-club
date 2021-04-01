@@ -20,8 +20,9 @@ function get_database_data( $table, $args ) {
 
     $query .= ' FROM '.$table;
     
-    if ( isset( $where ) ) {
+    if ( ! empty( $args['where'] ) ) {
 
+        $where  = $args['where'];
         $_where = [];
 
         if ( is_array( $where ) ) {
