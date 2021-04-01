@@ -12,17 +12,15 @@
             <div class="sidebar-brand-text mx-3">BukaLapak</div>
         </a>
         <hr class="sidebar-divider my-0">
-        <li class="nav-item active">
-            <a class="nav-link" href="">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span></a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">
-            <i class="fas fa-fw fa-user-tie"></i>
-            <span>Manage Admin</span>
-            </a>
-        </li>
+
+        <?php foreach( $menu as $key => $value ) : ?>
+            <li class="nav-item active">
+                <a class="nav-link" href="">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span><?php echo $value['label']; ?></span></a>
+            </li>
+        <?php endforeach; ?>
+
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProducts"
             aria-expanded="true" aria-controls="collapseProducts">
@@ -41,12 +39,6 @@
             </div>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">
-            <i class="fas fa-fw fa-edit"></i>
-            <span>Insert Products</span>
-            </a>
-        </li>
-        <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOrders"
             aria-expanded="true" aria-controls="collapseOrders">
             <i class="fas fa-fw fa-tags"></i>
@@ -61,12 +53,7 @@
             </div>
             </div>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">
-            <i class="fas fa-fw fa-users"></i>
-            <span>Users List</span>
-            </a>
-        </li>
+
         </ul>
         <!-- Sidebar -->
         <div id="content-wrapper" class="d-flex flex-column">
