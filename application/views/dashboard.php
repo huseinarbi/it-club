@@ -15,7 +15,7 @@
 
         <?php foreach( $menu as $key => $value ) : ?>
             <li class="nav-item active">
-                <a class="nav-link" href="">
+                <a class="nav-link" href="<?= base_url($value['url']); ?>">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span><?php echo $value['label']; ?></span></a>
             </li>
