@@ -44,8 +44,9 @@ function get_database_data( $table, $args ) {
 
 function add_database_data( $table, $data ) {
     $cic    = new CI_Controller();
-    $result = $cic->db->insert_string( $table, $data );
-
+    // $result = $cic->db->insert_string( $table, $data );
+    $result = $cic->db->insert( $table, $data );
+    
     if ( $result ) {
         return true;
     }
@@ -55,7 +56,9 @@ function add_database_data( $table, $data ) {
 
 function update_database_data( $table, $data, $where ) {
     $cic    = new CI_Controller();
-    $result = $cic->db->update_string( $table, $data, $where );
+    // $result = $cic->db->update_string( $table, $data, $where );
+    $cic->db->where($where);
+    $result = $cic->db->update( $table, $data );
 
     if ( $result ) {
         return true;

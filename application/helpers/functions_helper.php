@@ -37,12 +37,27 @@ function is_page( $page ) {
 /**
 * Function untuk set data (list menu)
 */    
-function get_item_menu() {
-    return array(
-        'dashboard',
-        'user',
-        'setting',
-    );
+function get_item_menu($title) {
+    // return array(
+    //     'dashboard',
+    //     'user',
+    //     'setting',
+    // );
+    $data = array(
+            'menu' => array(
+                array(
+                    'url'   => 'admin/dashboard/',
+                    'label' => 'Dashboard'
+                ),
+                array(
+                    'url'   => 'admin/user/',
+                    'label' => 'Menu User'
+                ),
+            ),
+            'title' => '$title'
+                
+        );
+    return $data;
 }
 
 ?>
