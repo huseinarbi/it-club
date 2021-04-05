@@ -22,37 +22,41 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 class Admin extends CI_Controller {
 
+    /**
+    * Function __construct
+    * Script yg dieksekusi ketika class ini diakses
+    */
     public function __construct() {
 		parent::__construct();
         $this->load->model( 'm_users' );
 	}
 
+    /**
+    * Function index
+    * Menampilkan halaman utama
+    */
     public function index() {
         $this->dashboard();
 	}
     
+    /**
+    * Function index
+    * Menampilkan halaman dashboard
+    */
     public function dashboard() {
 
-        $data = array(
-            'menu' => array(
-                array(
-                    'url'   => 'dashboard',
-                    'label' => 'Dashboard'
-                ),
-                array(
-                    'url'   => 'users',
-                    'label' => 'Menu User'
-                ),
-            ),
-            'title' => 'Himanifo'
-                
-        );
-
+        // var untuk sidemenu
+        $data = get_item_menu('Himanifo');
+        // view page
         $this->load->view( 'dashboard', $data );
     }
 
-    public function user( $method = false , $id = false, $where = false ) {
-        return $this->m_users->user_render( $method, $id );
+    /** 
+    * Gerbang untuk mengelola routing user
+    * $method => "add/update/delete/view"
+    */
+    public function user( $method = false , $id = false ) {
+        $this->m_users->user_render( $method, $id );
     }
 
 }

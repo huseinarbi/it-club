@@ -43,11 +43,11 @@ class Login extends CI_Controller {
     }
 
     /**
-    * Menampilkan view dashboard
+    * Memproses login
     */
     public function login_proses() {
         // get input
-        $email      = $_POST['email'];          // ajiwahyu@gmail.com
+        $email      = $_POST['email'];   // ajiwahyu@gmail.com
         $password   = $_POST['pwd'];     // password
 
         $exists = $this->m_login->checking_user_login( $email, $password );
